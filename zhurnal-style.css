@@ -1,0 +1,114 @@
+/*  Menu  */
+
+ul#zhurnal-menu {
+	list-style:none;
+	margin:0 auto;
+	overflow:auto;
+	}
+
+ul#zhurnal-menu a {
+	text-align:center;
+	border: 2px solid black;
+	padding: .5em;
+	margin: 0.5em;
+	float:right;
+	width:5em;
+	line-height:2em;
+	text-decoration:none;
+	color:black;
+}
+	
+	
+ul#zhurnal-menu a:hover {
+	background-color:#E0E0E0;
+}
+
+ul#zhurnal-menu a:active {
+	background-color:#D1D1D1;
+}
+
+ul#zhurnal-menu.main {
+	width: 21.6em;
+	}
+
+ul#zhurnal-menu.main a {
+	height:2em;
+	font-size:1.5em;
+}
+
+ul#zhurnal-menu.horizontal {
+	width: 35em;
+}
+	
+ul#zhurnal-menu.horizontal a {
+	font-size:1.2em;
+}
+
+ul#zhurnal-menu.horizontal a.active {
+	background-color:#ff7f2a;
+/* 	border-width:3px;
+ */	font-weight:bold;
+}
+
+#zhurnal-menu >li {
+	float:right;
+}
+
+/* Search Form */
+form#zukh {
+	text-align:center;
+	margin-top:1em;
+}
+
+ol.zhurnal-index {
+	padding-right:2em;
+}
+
+ul.zhurnal{
+	list-style:none;
+}
+
+.zhurnal.index-letter {
+	font-size: 3em;
+	font-family:serif;
+}
+
+ul.zhurnal.author-index, ul.zhurnal.tag-index {
+	margin-right:0;
+	
+}
+
+ul.zhurnal.letter-listing {
+	margin-right:2.5em;
+}
+
+ul.zhurnal.author-index > li {
+	margin-top: 1em;
+}
+
+ul.zhurnal.article-listing {
+	background-color: #EFEFEF;
+	padding-right:.5em
+}
+
+.author-name,
+.category-name {
+	font-size:1.2em;
+}
+
+.zhurnal.tag {
+	font-size:1.1em;
+}
+
+a.zhurnal-article-title,
+a.by-author {
+	text-decoration:none;
+}
+
+.by-author:hover,
+.author-name:hover,
+.zhurnal.tag:hover,
+.category-name:hover,
+a.zhurnal-article-title:hover {
+	text-decoration:underline;
+}

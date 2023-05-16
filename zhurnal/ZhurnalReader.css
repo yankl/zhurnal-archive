@@ -1,0 +1,21 @@
+/*
+ * Custom overrides for BookReader Demo.
+ */
+
+/* Hide print and embed functionality */
+#BRtoolbar .embed, .print, #BRtoolbar .logo {
+    display: none;
+}
+
+.BRicon.logo {
+	display:none;
+}
+
+/* RTL Changes 
+
+#BRpagenum {
+text-align:center;
+}
+
+
+*/
