@@ -60,8 +60,12 @@ function zhurnal($atts) {
 	$zhurnal_xml_path = plugins_url('zhurnaln.xml', __FILE__);
 	$output = zhurnal_menu($menu_style, $active_flag);
 	$output .= search_form();
-	if ($xslpath)
-		$output .= xml_with_xsl($zhurnal_xml_path, plugins_url('xsl/' . $xslpath, __FILE__), $search_term);
+	if ($xslpath) {
+		if ( file_exists ($zhurnal_xml_path) )
+			$output .= xml_with_xsl($zhurnal_xml_path, plugins_url('xsl/' . $xslpath, __FILE__), $search_term);
+		else
+			$output .= "Couldn't load " . $zhurnal_xml_path;
+	}
 	return $output;
 }
 
