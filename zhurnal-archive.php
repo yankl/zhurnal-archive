@@ -7,13 +7,16 @@
     Version: 0.1 
     Author URI: 
     */  
+	
+use Yugntruf\ZhurnalArkhiv\Main\Frontend;
 
-$zhurnal_xml_path = plugins_url('zhurnaln.xml', __FILE__);
+define('ARKHIV_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
 
-// zhurnal shortcode
 require __DIR__ . '/vendor/autoload.php';
 
-add_shortcode('zhurnal', 'zhurnal');
+Frontend::register();
+
+$zhurnal_xml_path = plugins_url('zhurnaln.xml', __FILE__);
 
 function zhurnal($atts) {
 	extract(shortcode_atts(array(
@@ -113,24 +116,3 @@ function xml_with_xsl($xmlpath, $xslpath, $search_term = NULL)
 
 	return $proc->transformToXML($xml);
 }
-
-// add scripts and styles for zhurnal 
-
-add_action('wp_print_scripts', 'zhurnal_scripts');
-
-function zhurnal_scripts() {
-	if ( ! is_admin() ) {
-		wp_enqueue_script('zhurnal-popup',
-			plugins_url('zhurnalpopup.js', 	__FILE__),
-			array( 'jquery'), '1.0');
-	}
-}
-
-add_action('wp_print_styles', 'zhurnal_styles');
-
-function zhurnal_styles() {
-	if ( ! is_admin() ) {
-		wp_enqueue_style('zhurnal-style', plugins_url('zhurnal-style.css', 	__FILE__));
-	}
-}
-?>
