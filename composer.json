@@ -1,0 +1,16 @@
+{
+    "name": "yanklb/zhurnal-archive",
+    "description": "Plugin to display Zhurnal Archive on Yugntruf website",
+    "autoload": {
+        "psr-4": {
+            "Yugntruf\\ZhurnalArkhiv\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yankl-Peretz Blum",
+            "email": "yakovblum@gmail.com"
+        }
+    ],
+    "require": {}
+}

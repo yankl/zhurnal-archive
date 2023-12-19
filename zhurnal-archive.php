@@ -11,6 +11,7 @@
 $zhurnal_xml_path = plugins_url('zhurnaln.xml', __FILE__);
 
 // zhurnal shortcode
+require __DIR__ . '/vendor/autoload.php';
 
 add_shortcode('zhurnal', 'zhurnal');
 
