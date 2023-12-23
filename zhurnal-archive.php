@@ -9,12 +9,14 @@
     */  
 	
 use Yugntruf\ZhurnalArkhiv\Main\Frontend;
+use Yugntruf\ZhurnalArkhiv\Main\Content;
 
 define('ARKHIV_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
 
 require __DIR__ . '/vendor/autoload.php';
 
-Frontend::register();
+$frontend = new Frontend(new Content());
+$frontend->register();
 
 $zhurnal_xml_path = plugins_url('zhurnaln.xml', __FILE__);
 

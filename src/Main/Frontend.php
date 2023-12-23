@@ -3,18 +3,17 @@
 namespace Yugntruf\ZhurnalArkhiv\Main;
 
 class Frontend {
-	public static function register(): void
+	
+	function __construct(private Content $content) {}
+	
+	public function register(): void
     {
-        $self = new self();
+        $self = new self($this->content);
 
 		add_action('wp_print_scripts', [$self, 'enqueueScripts']);
 		add_action('wp_print_styles', [$self, 'enqueueStyles']);
-		add_shortcode('zhurnal', [$self, 'showContent']);
+		add_shortcode('zhurnal', [$this->content, 'output']);
     }
-	
-	public function showContent($attrs) {
-		return 'Test Content';
-	}
 	
 	public function enqueueScripts(){
 		if ( ! is_admin() ) {
