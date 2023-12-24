@@ -41,7 +41,7 @@ class Content {
 				$xslpath = 'categories.xsl';
 				$active_flag['categories'] = 'active';
 				break;
-			case 'search':
+			case 'zukh':
 				$menu_style = 'horizontal';
 				$xslpath = 'search.xsl';
 				$search_term = $_GET['q'];
@@ -74,7 +74,8 @@ HTML;
 
 	private function search_form() { 
 		$search_html = <<<HTML
-	<form id="zukh" action="/arkhiv/zukh/" method="get">
+	<form id="zukh" method="get">
+		<input type="hidden" name="view" value="zukh" />
 		<input type="text" class="yidbox" name="q" />
 		<input type="submit" value="זוך!" />
 	</form>
