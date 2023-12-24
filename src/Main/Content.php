@@ -46,7 +46,7 @@ class Content {
 				$xslpath = 'search.xsl';
 				$search_term = $_GET['q'];
 		}
-		$this->zhurnal_xml_path = plugins_url('zhurnaln.xml', __FILE__);
+		$this->zhurnal_xml_path = ARKHIV_PLUGIN_DIR . '/resources/zhurnaln.xml';
 		$output = $this->zhurnal_menu($menu_style, $active_flag);
 		$output .= $this->search_form();
 		if (isset($xslpath)) {
