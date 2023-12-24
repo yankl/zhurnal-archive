@@ -1,4 +1,4 @@
-<div class='zhurnal-container'>
+<div class='zhurnal-container' dir='rtl'>
 <h1 style="text-align:center">יוגנטרוף־אַרכיװ</h1>
 <ul id="zhurnal-menu" class="$menu_style">
 	<li><a class="<?=$active_flag['index'] ?>" href="?view=ale-numern">אַלע נומערן</a></li>
