@@ -8,43 +8,33 @@ class Content {
 	
 	public function output($atts) {
 		
-		$active_flag = array(
-			'index' => '',
-			'authors' => '',
-			'tags' => '',
-			'categories' => '',
-		);
+		$views = [
+			['slug' => 'ale-numern',
+			 'text' => 'אַלע נומערן',
+			 'xsl' => 'zhurnalindex.xsl',
+			 'in-menu' => true],
+			 ['slug' => 'mekhabrim',
+			 'text' => 'מחברים',
+			 'xsl' => 'authors.xsl',
+			 'in-menu' => true],
+			 ['slug' => 'zukhtsetl',
+			 'text' => 'זוכצעטל',
+			 'xsl' => 'tags.xsl',
+			 'in-menu' => true],
+			 ['slug' => 'kategoryes',
+			 'text' => 'קאַטעגאָריעס',
+			 'xsl' => 'categories.xsl',
+			 'in-menu' => true],
+			 ['slug' => 'zukh',
+			 'text' => 'זוך',
+			 'xsl' => 'search.xsl',
+			 'in-menu' => false],
+		];
 		
 		$search_term = NULL;
 		
-		switch($this->page) {
-			case 'main':
-				$menu_style = 'main';
-				break;
-			case 'ale-numern':
-				$menu_style = 'horizontal';
-				$xslpath = 'zhurnalindex.xsl';
-				$active_flag['index'] = 'active';
-				break;
-			case 'mekhabrim':
-				$menu_style = 'horizontal';
-				$xslpath = 'authors.xsl';
-				$active_flag['authors'] = 'active';
-				break;
-			case 'zukhtsetl':
-				$menu_style = 'horizontal';
-				$xslpath = 'tags.xsl';
-				$active_flag['tags'] = 'active';
-				break;
-			case 'kategoryes':
-				$menu_style = 'horizontal';
-				$xslpath = 'categories.xsl';
-				$active_flag['categories'] = 'active';
-				break;
-			case 'zukh':
-				$menu_style = 'horizontal';
-				$xslpath = 'search.xsl';
-				$search_term = $_GET['q'];
+		if ('zukh' == $this->page) {
+			$search_term = $_GET['q'];
 		}
 		$this->zhurnal_xml_path = ARKHIV_PLUGIN_DIR . '/resources/zhurnaln.xml';
 		$xsloutput = isset($xslpath)

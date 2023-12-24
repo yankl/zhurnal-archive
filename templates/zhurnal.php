@@ -1,10 +1,11 @@
-<div class='zhurnal-container' dir='rtl'>
+<div class='zhurnal-container <?=$this->page ?>' dir='rtl'>
 <h1 style="text-align:center">יוגנטרוף־אַרכיװ</h1>
-<ul id="zhurnal-menu" class="$menu_style">
-	<li><a class="<?=$active_flag['index'] ?>" href="?view=ale-numern">אַלע נומערן</a></li>
-	<li><a class="<?=$active_flag['authors'] ?>" href="?view=mekhabrim">מחברים</a></li>
-	<li><a class="<?=$active_flag['categories'] ?>" href="?view=kategoryes">קאַטעגאָריעס</a></li>
-	<li><a class="<?=$active_flag['tags'] ?>" href="?view=zukhtsetl">זוכצעטל</a></li>
+<ul id="zhurnal-menu"><?php 
+	foreach ($views as $view) {
+	if ($view['in-menu']) { ?>
+	<li><a class="<?= ($view['slug'] == $this->page) ? 'active' : '' ?>" href="?view=<?=$view['slug'] ?>"><?=$view['text'] ?></a>
+	<?php } 
+	} ?>
 </ul>
 <form id="zukh" method="get">
 		<input type="hidden" name="view" value="zukh" />
