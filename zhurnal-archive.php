@@ -17,7 +17,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 $zhurnal_xml_path = plugins_url('zhurnaln.xml', __FILE__);
 
-$frontend = new Frontend(new Content($zhurnal_xml_path));
+$page_requested = $_GET['view'] ?? 'main';
+
+$frontend = new Frontend(new Content($zhurnal_xml_path, $page_requested));
 $frontend->register();
 
 

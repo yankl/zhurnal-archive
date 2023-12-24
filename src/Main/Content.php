@@ -4,12 +4,9 @@ namespace Yugntruf\ZhurnalArkhiv\Main;
 
 class Content {
 	
-	public function __construct(private string $zhurnal_xml_path) {}
+	public function __construct(private string $zhurnal_xml_path, private string $page = 'main') {}
 	
 	public function output($atts) {
-		extract(shortcode_atts(array(
-			'page' => 'main',
-		), $atts));
 		
 		$active_flag = array(
 			'index' => '',
@@ -20,7 +17,7 @@ class Content {
 		
 		$search_term = NULL;
 		
-		switch($page) {
+		switch($this->page) {
 			case 'main':
 				$menu_style = 'main';
 				break;
