@@ -87,10 +87,10 @@ HTML;
 	{
 		$xml = simplexml_load_file($xmlpath);
 
-		$xsl = new DOMDocument;
+		$xsl = new \DOMDocument;
 		$xsl->load($xslpath);
 
-		$proc = new XSLTProcessor;
+		$proc = new \XSLTProcessor;
 		$proc->importStyleSheet($xsl);
 
 		if ( ! is_null($search_term) )
