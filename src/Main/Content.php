@@ -21,22 +21,22 @@ class Content {
 			case 'main':
 				$menu_style = 'main';
 				break;
-			case 'index':
+			case 'ale-numern':
 				$menu_style = 'horizontal';
 				$xslpath = 'zhurnalindex.xsl';
 				$active_flag['index'] = 'active';
 				break;
-			case 'authors':
+			case 'mekhabrim':
 				$menu_style = 'horizontal';
 				$xslpath = 'authors.xsl';
 				$active_flag['authors'] = 'active';
 				break;
-			case 'tags':
+			case 'zukhtsetl':
 				$menu_style = 'horizontal';
 				$xslpath = 'tags.xsl';
 				$active_flag['tags'] = 'active';
 				break;
-			case 'categories':
+			case 'kategoryes':
 				$menu_style = 'horizontal';
 				$xslpath = 'categories.xsl';
 				$active_flag['categories'] = 'active';
@@ -62,10 +62,10 @@ class Content {
 		$menu_html= <<<HTML
 <h1 style="text-align:center">יוגנטרוף־אַרכיװ</h1>
 <ul id="zhurnal-menu" class="$menu_style">
-	<li><a class="{$active_flag['index']}" href="/arkhiv/ale-numern/">אַלע נומערן</a></li>
-	<li><a class="{$active_flag['authors']}" href="/arkhiv/mekhabrim/">מחברים</a></li>
-	<li><a class="{$active_flag['categories']}" href="/arkhiv/kategoryes/">קאַטעגאָריעס</a></li>
-	<li><a class="{$active_flag['tags']}" href="/arkhiv/zukhtsetl/">זוכצעטל</a></li>
+	<li><a class="{$active_flag['index']}" href="?view=ale-numern">אַלע נומערן</a></li>
+	<li><a class="{$active_flag['authors']}" href="?view=mekhabrim">מחברים</a></li>
+	<li><a class="{$active_flag['categories']}" href="?view=kategoryes">קאַטעגאָריעס</a></li>
+	<li><a class="{$active_flag['tags']}" href="?view=zukhtsetl">זוכצעטל</a></li>
 </ul>
 HTML;
 
