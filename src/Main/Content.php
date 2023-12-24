@@ -61,7 +61,7 @@ class Content {
 		return $output;
 	}
 	
-	function zhurnal_menu($menu_style, $active_flag) { 
+	private function zhurnal_menu($menu_style, $active_flag) { 
 		$menu_html= <<<HTML
 <h1 style="text-align:center">יוגנטרוף־אַרכיװ</h1>
 <ul id="zhurnal-menu" class="$menu_style">
@@ -75,7 +75,7 @@ HTML;
 		return $menu_html;
 	}
 
-	function search_form() { 
+	private function search_form() { 
 		$search_html = <<<HTML
 	<form id="zukh" action="/arkhiv/zukh/" method="get">
 		<input type="text" class="yidbox" name="q" />
@@ -85,7 +85,7 @@ HTML;
 		return $search_html;
 	}
 
-	function xml_with_xsl($xmlpath, $xslpath, $search_term = NULL)
+	private function xml_with_xsl($xmlpath, $xslpath, $search_term = NULL)
 	{
 		$xml = simplexml_load_file($xmlpath);
 
