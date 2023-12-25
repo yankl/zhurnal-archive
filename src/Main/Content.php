@@ -9,26 +9,26 @@ class Content {
 	public function output($atts) {
 		
 		$views = [
-			['slug' => 'ale-numern',
-			 'text' => 'אַלע נומערן',
-			 'xsl' => 'zhurnalindex.xsl',
-			 'in-menu' => true],
-			 ['slug' => 'mekhabrim',
-			 'text' => 'מחברים',
-			 'xsl' => 'authors.xsl',
-			 'in-menu' => true],
-			 ['slug' => 'zukhtsetl',
-			 'text' => 'זוכצעטל',
-			 'xsl' => 'tags.xsl',
-			 'in-menu' => true],
-			 ['slug' => 'kategoryes',
-			 'text' => 'קאַטעגאָריעס',
-			 'xsl' => 'categories.xsl',
-			 'in-menu' => true],
-			 ['slug' => 'zukh',
-			 'text' => 'זוך',
-			 'xsl' => 'search.xsl',
-			 'in-menu' => false],
+			'ale-numern' =>
+				['text' => 'אַלע נומערן',
+				'xsl' => 'zhurnalindex.xsl',
+				'in-menu' => true],
+			 'mekhabrim' =>
+				['text' => 'מחברים',
+				'xsl' => 'authors.xsl',
+				'in-menu' => true],
+			 'zukhtsetl' =>
+				['text' => 'זוכצעטל',
+				'xsl' => 'tags.xsl',
+				'in-menu' => true],
+			'kategoryes' =>
+				['text' => 'קאַטעגאָריעס',
+				'xsl' => 'categories.xsl',
+				'in-menu' => true],
+			'zukh' => 
+				['text' => 'זוך',
+				'xsl' => 'search.xsl',
+				'in-menu' => false],
 		];
 		
 		$search_term = NULL;
@@ -36,7 +36,9 @@ class Content {
 		if ('zukh' == $this->page) {
 			$search_term = $_GET['q'];
 		}
-		$this->zhurnal_xml_path = ARKHIV_PLUGIN_DIR . '/resources/zhurnaln.xml';
+		
+		$xslpath = $views[$this->page]['xsl'];
+
 		$xsloutput = isset($xslpath)
 			? $this->xml_with_xsl($this->zhurnal_xml_path, ARKHIV_PLUGIN_DIR .  '/xsl/' . $xslpath, $search_term)
 			: $xsloutput = "Couldn't load " . $this->zhurnal_xml_path
