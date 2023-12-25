@@ -2,9 +2,11 @@
 
 namespace Yugntruf\ZhurnalArkhiv\Main;
 
+use DI\Attribute\Inject;
+
 class Content {
 	
-	public function __construct(private string $zhurnal_xml_path, private string $page = 'main') {}
+	public function __construct(#[Inject('xmlpath')] private string $zhurnal_xml_path, #[Inject('view')] private string $page = 'main') {}
 	
 	public function output($atts) {
 		

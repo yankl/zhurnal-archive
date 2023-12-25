@@ -15,11 +15,15 @@ define('ARKHIV_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
 
 require __DIR__ . '/vendor/autoload.php';
 
-$zhurnal_xml_path = plugins_url('zhurnaln.xml', __FILE__);
+$containerBuilder = new DI\ContainerBuilder();
+$containerBuilder->useAttributes(true);
+$containerBuilder->addDefinitions([
+	'xmlpath' => ARKHIV_PLUGIN_DIR. 'resources/zhurnaln.xml',
+	'view' => $_GET['view'] ?? 'main'
+]);
+$container = $containerBuilder->build();
 
-$page_requested = $_GET['view'] ?? 'main';
-
-$frontend = new Frontend(new Content($zhurnal_xml_path, $page_requested));
+$frontend = $container->get(Frontend::class);
 $frontend->register();
 
 
