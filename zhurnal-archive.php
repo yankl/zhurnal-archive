@@ -17,10 +17,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 $containerBuilder = new DI\ContainerBuilder();
 $containerBuilder->useAttributes(true);
-$containerBuilder->addDefinitions([
-	'xmlpath' => ARKHIV_PLUGIN_DIR. 'resources/zhurnaln.xml',
-	'view' => $_GET['view'] ?? 'main'
-]);
+$containerBuilder->addDefinitions(ARKHIV_PLUGIN_DIR . 'config.php');
 $container = $containerBuilder->build();
 
 $frontend = $container->get(Frontend::class);
