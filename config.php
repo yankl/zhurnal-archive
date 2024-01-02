@@ -31,7 +31,7 @@ $xsl_path = $xsl_filename ? ARKHIV_PLUGIN_DIR . 'xsl/' . $xsl_filename : '';
 
 return [
 	'xmlpath' => ARKHIV_PLUGIN_DIR. 'resources/zhurnaln.xml',
-	'images_folder' => ARKHIV_PLUGIN_DIR . 'assets',
+	'images_folder' => 'assets/',
 	'image_file_pattern' => 'YR.[numer].[zaytl].png',
 	'requested_view' => $requested_view,
 	'search_term' => $_GET['q'] ?? '',

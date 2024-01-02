@@ -12,6 +12,7 @@ use Yugntruf\ZhurnalArkhiv\Main\Frontend;
 use Yugntruf\ZhurnalArkhiv\Main\Content;
 
 define('ARKHIV_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
+define('ARKHIV_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 require __DIR__ . '/vendor/autoload.php';
 

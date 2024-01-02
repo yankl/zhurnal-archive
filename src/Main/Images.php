@@ -33,6 +33,16 @@ class Images {
 		return $cache[$numer];
 
 	}
+	
+	public function img_uri ($numer, $zaytl) {
+		$filename = str_replace(
+					['[numer]', '[zaytl]'],
+					[$numer, $zaytl],
+					$this->images_file_pattern
+					);
+					
+		return ARKHIV_PLUGIN_URL . $this->images_folder . $filename;
+	}
 
 	/**
 	*
@@ -44,7 +54,7 @@ class Images {
 	private function numer2pages_thehardway () {
 		$file_pattern = str_replace( ['[numer]', '[zaytl]'], '*',
 										$this->images_file_pattern );
-		$search_pattern = $this->images_folder . '/' . $file_pattern;
+		$search_pattern = ARKHIV_PLUGIN_DIR . $this->images_folder . $file_pattern;
 		$num2pages = array();
 		foreach (glob($search_pattern) as $filename) {
 			//the pages are found between the second and third periods in the filename
