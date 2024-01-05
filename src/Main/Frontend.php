@@ -18,7 +18,7 @@ class Frontend {
 	public function enqueueScripts(){
 		if ( ! is_admin() ) {
 			wp_enqueue_script('zhurnal-popup',
-				ARKHIV_PLUGIN_DIR . 'js/zhurnalpopup.js',
+				ARKHIV_PLUGIN_URL . 'js/zhurnalpopup.js',
 				array( 'jquery'), '1.0');
 		}
 	}
@@ -26,7 +26,7 @@ class Frontend {
 	public function enqueueStyles() {
 		if ( ! is_admin() ) {
 			wp_enqueue_style('zhurnal-style', 
-			ARKHIV_PLUGIN_DIR . 'css/zhurnal-style.css');
+			ARKHIV_PLUGIN_URL . 'css/zhurnal-style.css');
 		}
 	}
 }
