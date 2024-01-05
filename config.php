@@ -24,8 +24,13 @@ $views = [
 		];
 
 $requested_view = $_GET['view'] ?? 'main';
+$mekhaber_nomen = $_GET['nomen'] ?? '';
+$mekhaber_familye = $_GET['familye'] ?? '';
 
 $xsl_filename = $views[$requested_view]['xsl'] ?? '';
+
+if ( $mekhaber_nomen | $mekhaber_familye )
+	$xsl_filename = 'single-author.xsl';
 
 $xsl_path = $xsl_filename ? ARKHIV_PLUGIN_DIR . 'xsl/' . $xsl_filename : '';
 
@@ -35,6 +40,8 @@ return [
 	'image_file_pattern' => 'YR.[numer].[zaytl].png',
 	'requested_view' => $requested_view,
 	'search_term' => $_GET['q'] ?? '',
+	'mekhaber_nomen' => $mekhaber_nomen,
+	'mekhaber_familye' => $mekhaber_familye,
 	'views' => $views,
 	'view_xsl' => $xsl_path
 ];

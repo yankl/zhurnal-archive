@@ -10,6 +10,8 @@ class Content {
 	#[Inject('xmlpath')] private string $zhurnal_xml_path, 
 	#[Inject('view_xsl')] private string $xslpath, 
 	#[Inject('search_term')] private string $search_term, 
+	#[Inject('mekhaber_nomen')] private string $mekhaber_nomen, 
+	#[Inject('mekhaber_familye')] private string $mekhaber_familye, 
 	private Menu $menu,
 	#[Inject('requested_view')] private string $page = 'main'
 	) {}
@@ -37,7 +39,9 @@ class Content {
 		$proc->importStyleSheet($xsl);
 
 		if ( $this->search_term )
-			$proc->setParameter('', 'search_term', $search_term);
+			$proc->setParameter('', 'search_term', $this->search_term);
+		$proc->setParameter('', 'familye', $this->mekhaber_familye);
+		$proc->setParameter('', 'rest', $this->mekhaber_nomen);
 
 		return $proc->transformToXML($xml);
 	}

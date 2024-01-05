@@ -12,6 +12,12 @@
 	<xsl:include href="include.xsl" />
 	
 	<xsl:template match="/">
+		<h1>
+			<xsl:text>אַלע אַרטיקלען פֿון </xsl:text>
+			<xsl:value-of select="$rest" />
+			<xsl:text> </xsl:text>
+			<xsl:value-of select="$familye" />
+		</h1>
 		<ol>
 			<xsl:apply-templates select="//article[author/familye=$familye and author/rest=$rest]" />
 		</ol>

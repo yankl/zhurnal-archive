@@ -13,7 +13,7 @@
 	<xsl:template name="author">
 		<xsl:if test="author">
 			<xsl:text> פֿון </xsl:text>
-			<a href='/wordpress/wp-content/plugins/zhurnal-archive/single-author-articles.php?familye={author/familye}&amp;rest={author/rest}' class="lbp_secondary by-author">
+			<a href='?familye={author/familye}&amp;nomen={author/rest}' class="lbp_secondary by-author">
 			<xsl:value-of select="author/rest"/><xsl:text> </xsl:text>
 			<xsl:value-of select="author/familye"/></a>
 		</xsl:if>
