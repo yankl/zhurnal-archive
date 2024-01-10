@@ -14,7 +14,7 @@
 		
 		
 	<xsl:template match="issue">
-		<h2><a href='/zhurnal/zhurnal.php?numer={@num}#mode/2up' class="zhurnal-article-title">נומער <xsl:value-of select="@num" /></a></h2>
+		<h2><a href='?numer={@num}#mode/2up' class="zhurnal-article-title">נומער <xsl:value-of select="@num" /></a></h2>
 		
 		<ol class="zhurnal-index"><xsl:apply-templates/></ol>
 		
