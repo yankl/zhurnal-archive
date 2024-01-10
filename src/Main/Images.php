@@ -22,6 +22,8 @@ class Images {
 	* @return array
 	*/
 	public function numer2pages($numer) {
+		if (!$this->does_numer_exist($numer))
+			throw new \ValueError("The issue {$numer} is not on file.", 1);
 		return $this->get_num2pages_array()[$numer];
 	}
 
@@ -33,6 +35,10 @@ class Images {
 					);
 
 		return ARKHIV_PLUGIN_URL . $this->images_folder . $filename;
+	}
+
+	public function does_numer_exist($numer) {
+		return array_key_exists($numer, $this->get_num2pages_array());
 	}
 
 	private function get_num2pages_array() {
