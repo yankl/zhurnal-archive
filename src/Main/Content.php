@@ -12,7 +12,10 @@ class Content {
 	#[Inject('search_term')] private string $search_term, 
 	#[Inject('mekhaber_nomen')] private string $mekhaber_nomen, 
 	#[Inject('mekhaber_familye')] private string $mekhaber_familye, 
+	#[Inject('numer_requested')] private string $numer_requested, 
 	private Menu $menu,
+	private Reader $reader,
+	private Images $images,
 	#[Inject('requested_view')] private string $page = 'main'
 	) {}
 	
@@ -46,4 +49,9 @@ class Content {
 		return $proc->transformToXML($xml);
 	}
 	
+	private function reader_html() {
+		if (!$this->numer_requested) return '';
+		if (!$this->images->does_numer_exist($this->numer_requested)) return '';
+		return $this->reader->html($this->numer_requested);
+	}
 }

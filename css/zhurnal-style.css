@@ -112,3 +112,7 @@ a.by-author {
 a.zhurnal-article-title:hover {
 	text-decoration:underline;
 }
+
+.zhurnal-reader-container {
+	height: 85vh;
+}

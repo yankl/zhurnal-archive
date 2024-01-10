@@ -7,4 +7,5 @@
 		<input type="submit" value="זוך!" />
 </form>
 <?=$this->xml_with_xsl() ?>
+<?=$this->reader_html() ?>
 </div>

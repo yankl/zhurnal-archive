@@ -7,7 +7,7 @@
 	indent="yes" omit-xml-declaration="yes"/>
 	
 	<xsl:template name="article-link">
-		<a href='/zhurnal/zhurnal.php?ui=embed&amp;numer={../@num}#page/{@page}/mode/1up' class="lbp_secondary zhurnal-article-title"><xsl:value-of select="title" /></a>
+		<a href='?numer={../@num}#page/n{@page - 1}/mode/1up' class="lbp_secondary zhurnal-article-title"><xsl:value-of select="title" /></a>
 	</xsl:template>
 	
 	<xsl:template name="author">

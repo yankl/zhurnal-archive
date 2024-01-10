@@ -26,6 +26,7 @@ $views = [
 $requested_view = $_GET['view'] ?? 'main';
 $mekhaber_nomen = $_GET['nomen'] ?? '';
 $mekhaber_familye = $_GET['familye'] ?? '';
+$numer_requested = $_GET['numer'] ?? '';
 
 $xsl_filename = $views[$requested_view]['xsl'] ?? '';
 
@@ -42,6 +43,7 @@ return [
 	'search_term' => $_GET['q'] ?? '',
 	'mekhaber_nomen' => $mekhaber_nomen,
 	'mekhaber_familye' => $mekhaber_familye,
+	'numer_requested' => $numer_requested,
 	'views' => $views,
 	'view_xsl' => $xsl_path
 ];

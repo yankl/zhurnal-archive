@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title><?=$title?></title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-
+<div class='zhurnal-reader-container'>
     <link rel="stylesheet" href="<?=ARKHIV_PLUGIN_URL?>vendor/BookReader/BookReader.css"/>
 
     <script src="<?=ARKHIV_PLUGIN_URL?>vendor/BookReader/webcomponents-bundle.js"></script>
@@ -15,15 +8,14 @@
     <script src="<?=ARKHIV_PLUGIN_URL?>vendor/BookReader/BookReader.js"></script>
 
     <!-- Plugins -->
-    <script src="<?=ARKHIV_PLUGIN_URL?>vendor/BookReader/plugins/plugin.iframe.js"></script>
+    <script src="<?=ARKHIV_PLUGIN_URL?>vendor/BookReader/plugins/plugin.url.js"></script>
 
     <style>
 html, body, #BookReader { width: 100%; height:100%; margin:0; padding: 0; }
     </style>
-</head>
-<body style="background-color: #939598;">
 
-<div id="BookReader">
+
+<div id="BookReader" dir='ltr'>
   זשורנאַל־לײענער<br/>
 
   <noscript>
@@ -65,10 +57,14 @@ var options = {
   ui: 'full', // embed, full (responsive)
 
   el: '#BookReader',
+  
+    /** Object to hold parameters related to 1up mode */
+  onePage: {
+    /** @type {AutoFitValues} */
+    autofit: 'width',
+  },
 };
 var br = new BookReader(options);
 br.init();
 </script>
-
-</body>
-</html>
+</div>
