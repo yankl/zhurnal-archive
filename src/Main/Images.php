@@ -42,7 +42,7 @@ class Images {
 			$num2pages = $this->cached_num2pages($this->numer2pages_thehardway());
 
 		if (false === $num2pages)
-			throw new Exception("Error writing file {$this->cache_filename}.");
+			throw new \Exception("Error writing file {$this->cache_filename}.");
 
 		return $num2pages;
 	}
