@@ -22,26 +22,29 @@ class Images {
 	* @return array
 	*/
 	public function numer2pages($numer) {
-		$cache = $this->cached_num2pages();
-
-		if (false == $cache)
-			$cache = $this->cached_num2pages($this->numer2pages_thehardway());
-
-		if (false === $cache)
-			throw new Exception("Error writing file {$this->cache_filename}.");
-
-		return $cache[$numer];
-
+		return $this->get_num2pages_array()[$numer];
 	}
-	
+
 	public function img_uri ($numer, $zaytl) {
 		$filename = str_replace(
 					['[numer]', '[zaytl]'],
 					[$numer, $zaytl],
 					$this->images_file_pattern
 					);
-					
+
 		return ARKHIV_PLUGIN_URL . $this->images_folder . $filename;
+	}
+
+	private function get_num2pages_array() {
+		$num2pages = $this->cached_num2pages();
+
+		if (false == $num2pages)
+			$num2pages = $this->cached_num2pages($this->numer2pages_thehardway());
+
+		if (false === $num2pages)
+			throw new Exception("Error writing file {$this->cache_filename}.");
+
+		return $num2pages;
 	}
 
 	/**
