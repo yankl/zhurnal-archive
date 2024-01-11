@@ -7,7 +7,7 @@ use DI\Attribute\Inject;
 class Menu {
 	public function __construct(
 	#[Inject('views')] private array $views,
-	#[Inject('requested_view')] private string $current_page
+	#[Inject('page')] private string $current_page
 	) {}
 	
 	public function html_output() {

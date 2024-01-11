@@ -16,7 +16,7 @@ class Content {
 	private Menu $menu,
 	private Reader $reader,
 	private Images $images,
-	#[Inject('requested_view')] private string $page = 'main'
+	#[Inject('page')] private string $page = 'main'
 	) {}
 	
 	public function output($atts) {
