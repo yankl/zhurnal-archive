@@ -11,12 +11,6 @@
 	<xsl:param name="search_term" />
 	
 	<xsl:template match="/">
-		<h2>
-			<xsl:text>רעזולטאַטן פֿאַר </xsl:text>
-			<span style="font-weight:bold">
-				<xsl:value-of select="$search_term" />
-			</span>
-		</h2>
 		<ol>
 			<xsl:apply-templates select="//article[contains(., $search_term)]" />
 		</ol>
