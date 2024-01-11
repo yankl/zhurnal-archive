@@ -2,17 +2,22 @@
 
 namespace Yugntruf\ZhurnalArkhiv\Main;
 
+use DI\Attribute\Inject;
+
 class Frontend {
 	
-	function __construct(private Content $content) {}
+	function __construct(
+		private Content $content,
+		#[Inject('shortcode_text')] private string $shortcode
+	) {}
 	
 	public function register(): void
     {
-        $self = new self($this->content);
+        $self = new self($this->content, $this->shortcode);
 
 		add_action('wp_print_scripts', [$self, 'enqueueScripts']);
 		add_action('wp_print_styles', [$self, 'enqueueStyles']);
-		add_shortcode('zhurnal', [$this->content, 'output']);
+		add_shortcode($this->shortcode, [$this->content, 'output']);
     }
 	
 	public function enqueueScripts(){

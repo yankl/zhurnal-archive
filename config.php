@@ -36,6 +36,7 @@ if ( $mekhaber_nomen | $mekhaber_familye )
 $xsl_path = $xsl_filename ? ARKHIV_PLUGIN_DIR . 'xsl/' . $xsl_filename : '';
 
 return [
+	'shortcode_text' => 'zhurnal',
 	'xmlpath' => ARKHIV_PLUGIN_DIR. 'resources/zhurnaln.xml',
 	'images_folder' => 'assets/',
 	'image_file_pattern' => 'YR.[numer].[zaytl].png',
