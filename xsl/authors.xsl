@@ -26,9 +26,9 @@
 		<xsl:if test="$current-letter &lt;= string-length($alephbeyz)">
 			<xsl:if test="count(key('first-letter', substring($alephbeyz,$current-letter,1)))">
 				<li>
-				<span class="zhurnal index-letter">
+				<div class="zhurnal index-letter">
 				<xsl:value-of select="substring($alephbeyz,$current-letter,1)"/>
-				</span>
+				</div>
 
 				<ul class="zhurnal letter-listing">
 				<xsl:for-each select="//article[count(. | key('first-letter', substring($alephbeyz,$current-letter,1))) = count(key('first-letter', substring($alephbeyz,$current-letter,1))) and author and count(. | key('articles-by-author', author)[1]) = 1]">

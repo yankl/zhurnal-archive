@@ -39,6 +39,8 @@ if ( $mekhaber_nomen | $mekhaber_familye ) {
 	$page = 'mekhaber';
 }
 
+if ( $numer_requested ) $page = 'reader';
+
 $xsl_path = $xsl_filename ? ARKHIV_PLUGIN_DIR . 'xsl/' . $xsl_filename : '';
 
 return [

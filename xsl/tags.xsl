@@ -26,9 +26,9 @@
 		<xsl:if test="$current-letter-position &lt;= string-length($alephbeyz)">
 			<xsl:if test="count(key('first-letter', $current-letter))">
 				<li>
-				<span class="zhurnal index-letter">
+				<div class="zhurnal index-letter">
 				<xsl:value-of select="$current-letter"/>
-				</span>
+				</div>
 
 				<ul class="zhurnal letter-listing">
 				<xsl:for-each select="key('first-letter', $current-letter)">

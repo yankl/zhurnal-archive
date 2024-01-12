@@ -11,8 +11,14 @@ class Menu {
 	) {}
 	
 	public function html_output() {
+		if ( $this->current_page == 'reader' 
+			or $this->current_page == 'mekhaber' )
+			$template_path = 'back-button.php';
+		else
+			$template_path = 'menu-template.php';
+			
 		ob_start();
-		include ARKHIV_PLUGIN_DIR . '/templates/menu-template.php';
+		include ARKHIV_PLUGIN_DIR . '/templates/' . $template_path;
 		$output = ob_get_contents();
 		ob_end_clean();
 		return $output;
