@@ -35,21 +35,12 @@ var options = {
   
   // Book title and the URL used for the book title link
   bookTitle: '<?=$title?>',
-  bookUrl: '/zhurnal',
-  bookUrlText: 'Back to yugntruf.org',
-  bookUrlTitle: 'Back to Archive.org',
+  bookUrl: '.',
+  bookUrlText: 'יוגנטרוף־אַרכיװ',
+  bookUrlTitle: 'יוגנטרוף־אַרכיװ',
   
   bookLanguage: 'yi',
   pageProgression: 'rl',
-
-  // thumbnail is optional, but it is used in the info dialog
-  thumbnail: '//archive.org/download/BookReader/img/page014.jpg',
-  // Metadata is optional, but it is used in the info dialog
-  metadata: [
-    {label: 'Title', value: 'Open Library BookReader Presentation'},
-    {label: 'Author', value: 'Internet Archive'},
-    {label: 'Demo Info', value: 'This demo shows how one could use BookReader with their own content.'},
-  ],
 
   // Override the path used to find UI images
   imagesBaseURL: '<?=ARKHIV_PLUGIN_URL?>vendor/BookReader/images/',
@@ -63,6 +54,8 @@ var options = {
     /** @type {AutoFitValues} */
     autofit: 'width',
   },
+  
+  startFullscreen: true,
 };
 var br = new BookReader(options);
 br.init();
