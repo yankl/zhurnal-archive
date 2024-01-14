@@ -117,3 +117,7 @@ a.zhurnal-article-title:hover {
 .zhurnal-reader-container {
 	height: 85vh;
 }
+
+#BookReader .BRtoolbarRight {
+	display: none;
+}
