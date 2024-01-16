@@ -15,5 +15,13 @@
     "require": {
         "php-di/php-di": "^7.0",
         "google/apiclient": "*"
+    },
+    "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Sheets"
+        ]
     }
 }
