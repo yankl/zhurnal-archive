@@ -54,5 +54,8 @@ return [
 	'mekhaber_familye' => sanitize_text_field( $mekhaber_familye ),
 	'numer_requested' => sanitize_text_field( $numer_requested ),
 	'views' => $views,
-	'view_xsl' => $xsl_path
+	'view_xsl' => $xsl_path,
+	'google_credentials' => ARKHIV_PLUGIN_DIR . 'creds/credentials.json',
+	'zhurnal_db_spreadsheet_id' => '1ErlDCGdqIm9qywcgo_MauBdTuzjvDNzS1tEEWP_vkvw',
+	'zhurnal_db_range_name' => 'ZhurnalData',
 ];
