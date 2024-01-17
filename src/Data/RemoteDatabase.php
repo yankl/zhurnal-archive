@@ -5,7 +5,7 @@ namespace Yugntruf\ZhurnalArkhiv\Data;
 use DI\Attribute\Inject;
 use \Google\Client;
 
-class Database {
+class RemoteDatabase {
 	
 	public function __construct(
 		#[Inject('google_credentials')] private string $creds,
@@ -48,7 +48,11 @@ class Database {
 		
 		foreach ($this->dataColumns as $datum => $column) {
 			$value = $row[$column - 1] ?? '';
-			if ($value) $namedRow[$datum] = $value;
+			if (!$value) continue;
+			if ($datum == 'rubrik')
+				$namedRow['rubrik'] = explode(',', $value);
+			else
+				$namedRow[$datum] = $value;
 		}
 		
 		return $namedRow;		
