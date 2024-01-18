@@ -9,7 +9,7 @@ class Images {
 	public function __construct(
 	#[Inject('images_folder')] private string $images_folder,
 	#[Inject('image_file_pattern')] private string $images_file_pattern,
-	private string $cache_filename = ARKHIV_PLUGIN_DIR . 'num2pages.txt',
+	private string $cache_filename = ARKHIV_PLUGIN_DIR . 'data/num2pages.txt',
 	) {}
 
 	/**
