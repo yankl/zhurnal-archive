@@ -36,7 +36,7 @@ class LocalDatabase {
 			);
 		}
 		
-		$this->saveToFile();
+		return $this->saveToFile(); //returns true if file was written
 	}
 	
 	private function hasIssue($numer) {
@@ -87,7 +87,7 @@ class LocalDatabase {
 	}
 	
 	private function saveToFile() {
-		$this->xml->saveXML($this->dbPath);
+		return $this->xml->saveXML($this->dbPath);
 	}
 	
 	public function loadFromFile() {

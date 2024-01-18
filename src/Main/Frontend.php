@@ -10,18 +10,16 @@ class Frontend {
 	function __construct(
 		private Content $content,
 		private Title $title,
-		private AdminPage $adminPage,
 		#[Inject('shortcode_text')] private string $shortcode
 	) {}
 	
 	public function register(): void
     {
         
-		$self = new self($this->content, $this->title, $this->adminPage, $this->shortcode);
+		$self = new self($this->content, $this->title, $this->shortcode);
 
 		add_action('wp_print_scripts', [$self, 'enqueueScripts']);
 		add_action('wp_print_styles', [$self, 'enqueueStyles']);
-		add_action('admin_menu', [$this->adminPage, 'add_page']);
 		add_shortcode($this->shortcode, [$this->content, 'output']);
 		add_filter('pre_get_document_title', [$this->title, 'filter_title']);
 		//Note: the following is a hook in the OceanWP theme

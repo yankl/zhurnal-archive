@@ -9,7 +9,7 @@
     */  
 	
 use Yugntruf\ZhurnalArkhiv\Main\Frontend;
-use Yugntruf\ZhurnalArkhiv\Main\Content;
+use Yugntruf\ZhurnalArkhiv\Admin\AdminPage;
 
 define('ARKHIV_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
 define('ARKHIV_PLUGIN_URL', plugin_dir_url(__FILE__));
@@ -23,5 +23,8 @@ $container = $containerBuilder->build();
 
 $frontend = $container->get(Frontend::class);
 $frontend->register();
+
+$backend = $container->get(AdminPage::class);
+$backend->register();
 
 
